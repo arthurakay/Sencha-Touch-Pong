@@ -20,6 +20,7 @@ Ext.define('MyApp.controller.Paddle', {
     },
 
     updateCPU: function(xy) {
+        //TODO: Add some AI by randomizing XY position according to difficulty
         MyApp.app.paddleLeft.element.setXY(xy);
     }
 

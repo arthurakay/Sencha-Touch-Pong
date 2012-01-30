@@ -26,10 +26,29 @@
             "userConfig": {
                 "fn": "incrementScore",
                 "designer|params": [
-                    "player"
+                    "isPlayer"
                 ],
-                "implHandler": "//stop game loop, start over if needed",
+                "implHandler": "MyApp.app.stopGame();\n\nif (!this.scoreCPU) { this.scoreCPU = 0; }\nif (!this.scorePlayer) { this.scorePlayer = 0; }\n\nif (isPlayer) {\n    Ext.ComponentQuery.query('#scorePlayer')[0].setHtml('Player: ' + ++this.scorePlayer);\n}\nelse {\n    Ext.ComponentQuery.query('#scoreCPU')[0].setHtml('CPU: ' + ++this.scoreCPU);\n}\n\n//if score is less than X, restart game\nif (this.scoreCPU < 10 && this.scorePlayer < 10) {\n    var box = MyApp.app.surface.getBox();\n\n    //center the ball\n    MyApp.app.ball.element.setXY(\n    [ Math.floor(box.width / 2), Math.floor( box.height / 2) ]\n    );\n\n    MyApp.app.startGame();\n}",
                 "designer|userClassName": "incrementScore"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen50611",
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "playPause",
+                "implHandler": "if (MyApp.intervalID) { MyApp.app.stopGame(); }\nelse { MyApp.app.startGame(); }",
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "button",
+                "designer|userClassName": "playPause"
             },
             "customConfigs": [],
             "expanded": true

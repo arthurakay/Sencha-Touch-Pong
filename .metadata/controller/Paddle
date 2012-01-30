@@ -28,7 +28,7 @@
                 "designer|params": [
                     "xy"
                 ],
-                "implHandler": "MyApp.app.paddleLeft.element.setXY(xy);",
+                "implHandler": "//TODO: Add some AI by randomizing XY position according to difficulty\nMyApp.app.paddleLeft.element.setXY(xy);",
                 "designer|userClassName": "updateCPU"
             },
             "customConfigs": [],

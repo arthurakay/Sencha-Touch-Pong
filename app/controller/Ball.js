@@ -38,8 +38,10 @@ Ext.define('MyApp.controller.Ball', {
             MyApp.app.dispatch({
                 controller : 'Referee',
                 action     : 'incrementScore',
-                args       : []
+                args       : [ true ]
             });
+
+            alert('Player has scored!');
 
             return false;
         }
@@ -47,8 +49,10 @@ Ext.define('MyApp.controller.Ball', {
             MyApp.app.dispatch({
                 controller : 'Referee',
                 action     : 'incrementScore',
-                args       : []
+                args       : [ false ]
             });
+
+            alert('CPU has scored!');
 
             return false;
         }
@@ -57,10 +61,12 @@ Ext.define('MyApp.controller.Ball', {
         }
         //check collision with paddles
         if (ballBox.left < leftPaddle.right && 
+        ballBox.left >= leftPaddle.right - 1 &&
         ballBox.bottom >= leftPaddle.top && 
         ballBox.top <= leftPaddle.bottom) { collisionX = true; }
 
         else if (ballBox.right > rightPaddle.left &&
+        ballBox.right <= rightPaddle.left + 1 &&
         ballBox.bottom >= rightPaddle.top && 
         ballBox.top <= rightPaddle.bottom) { collisionX = true; }
 
@@ -77,6 +83,7 @@ Ext.define('MyApp.controller.Ball', {
             x, y;
 
         if (!this.direction) {
+            //TODO: Randomize the direction
             this.direction = [ 1, 1 ];
         }
 
@@ -89,9 +96,6 @@ Ext.define('MyApp.controller.Ball', {
         if (this.checkCollisions(el)) {
             //This is FAR more efficient than using dispatch()!
             MyApp.controller.Paddle.prototype.updateCPU([x,y]);
-        }
-        else {
-            MyApp.app.stopGame();
         }
     },
 

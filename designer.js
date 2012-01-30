@@ -41,7 +41,7 @@ Ext.application({
         MyApp.app.paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];
         MyApp.app.paddleRight = Ext.ComponentQuery.query('#player')[0];
 
-        MyApp.intervalID = setInterval(MyApp.app.loop, 10);
+        MyApp.intervalID = setInterval(MyApp.app.loop, 5);
     },
 
     loop: function() {

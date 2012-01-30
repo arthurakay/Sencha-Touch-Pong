@@ -28,7 +28,15 @@ Ext.define('MyApp.view.ui.Surface', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Pong'
+                title: 'Pong',
+                items: [
+                    {
+                        xtype: 'button',
+                        itemId: 'mybutton',
+                        ui: 'confirm',
+                        text: 'Play / Pause'
+                    }
+                ]
             },
             {
                 xtype: 'ball',
@@ -54,7 +62,8 @@ Ext.define('MyApp.view.ui.Surface', {
                         cls: [
                             'score'
                         ],
-                        html: 'CPU: 0'
+                        html: 'CPU: 0',
+                        itemId: 'scoreCPU'
                     },
                     {
                         xtype: 'spacer'
@@ -64,7 +73,8 @@ Ext.define('MyApp.view.ui.Surface', {
                         cls: [
                             'score'
                         ],
-                        html: 'Player: 0'
+                        html: 'Player: 0',
+                        itemId: 'scorePlayer'
                     }
                 ]
             }

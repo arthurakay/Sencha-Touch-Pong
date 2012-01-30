@@ -16,11 +16,42 @@ Ext.define('MyApp.controller.Referee', {
     extend: 'Ext.app.Controller',
 
     config: {
-
+        control: {
+            "button": {
+                tap: 'playPause'
+            }
+        }
     },
 
-    incrementScore: function(player) {
-        //stop game loop, start over if needed
+    incrementScore: function(isPlayer) {
+        MyApp.app.stopGame();
+
+        if (!this.scoreCPU) { this.scoreCPU = 0; }
+        if (!this.scorePlayer) { this.scorePlayer = 0; }
+
+        if (isPlayer) {
+            Ext.ComponentQuery.query('#scorePlayer')[0].setHtml('Player: ' + ++this.scorePlayer);
+        }
+        else {
+            Ext.ComponentQuery.query('#scoreCPU')[0].setHtml('CPU: ' + ++this.scoreCPU);
+        }
+
+        //if score is less than X, restart game
+        if (this.scoreCPU < 10 && this.scorePlayer < 10) {
+            var box = MyApp.app.surface.getBox();
+
+            //center the ball
+            MyApp.app.ball.element.setXY(
+            [ Math.floor(box.width / 2), Math.floor( box.height / 2) ]
+            );
+
+            MyApp.app.startGame();
+        }
+    },
+
+    playPause: function(button, e, options) {
+        if (MyApp.intervalID) { MyApp.app.stopGame(); }
+        else { MyApp.app.startGame(); }
     }
 
 });

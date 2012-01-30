@@ -31,7 +31,26 @@
                 "designer|userClassName": "MyToolbar"
             },
             "customConfigs": [],
-            "expanded": true
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen50085",
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mybutton",
+                        "ui": "confirm",
+                        "text": "Play / Pause",
+                        "designer|userClassName": "MyButton"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
         },
         {
             "id": "ExtBox1-ext-gen2726",
@@ -103,7 +122,7 @@
                 "designer|userClassName": "MyToolbar1"
             },
             "customConfigs": [],
-            "expanded": false,
+            "expanded": true,
             "cn": [
                 {
                     "id": "ExtBox1-ext-gen4743",
@@ -118,6 +137,7 @@
                             "score"
                         ],
                         "html": "CPU: 0",
+                        "itemId": "scoreCPU",
                         "designer|userClassName": "MyComponent5"
                     },
                     "customConfigs": [],
@@ -150,6 +170,7 @@
                             "score"
                         ],
                         "html": "Player: 0",
+                        "itemId": "scorePlayer",
                         "designer|userClassName": "MyComponent6"
                     },
                     "customConfigs": [],
