@@ -1,0 +1,38 @@
+{
+    "id": "ExtBox1-ext-gen5883",
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|init": "",
+        "designer|userClassName": "Referee"
+    },
+    "customConfigs": [],
+    "designerId": "40d38f98-1840-43d0-a2b9-d42b955bddcb",
+    "$viewOrder": 2,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen11282",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "incrementScore",
+                "designer|params": [
+                    "player"
+                ],
+                "implHandler": "//stop game loop, start over if needed",
+                "designer|userClassName": "incrementScore"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}

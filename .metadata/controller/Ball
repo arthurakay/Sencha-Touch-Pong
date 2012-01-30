@@ -1,0 +1,78 @@
+{
+    "id": "ExtBox1-ext-gen2416",
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|init": "",
+        "designer|userClassName": "Ball"
+    },
+    "customConfigs": [],
+    "designerId": "8c6f99fe-29e7-4209-af7d-638350f6e65a",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen6441",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "checkCollisions",
+                "designer|params": [
+                    "ball",
+                    "xy"
+                ],
+                "implHandler": "var leftPaddle  = null,\n    rightPaddle = null,\n    ballPos     = ball.element.getXY(),\n    ballHeight  = ball.element.getHeight(),\n    collisionX  = false,\n    collisionY  = false,\n    surfaceBox;\n\nif (!MyApp.app.surface) { \n    MyApp.app.surface = Ext.ComponentQuery.query('viewport > panel')[0].element.down('.x-panel-inner'); \n}\nsurfaceBox = MyApp.app.surface.getBox();\n\n//check collision with borders\nif (xy[0] < surfaceBox.left) {\n    MyApp.app.dispatch({\n        controller : 'MyApp.controller.Referee',\n        action     : 'incrementScore',\n        args       : []\n    });\n\n    return false;\n}\nelse if (xy[0] > surfaceBox.right) {\n    MyApp.app.dispatch({\n        controller : 'MyApp.controller.Referee',\n        action     : 'incrementScore',\n        args       : []\n    });\n\n    return false;\n}\nif (xy[1] < surfaceBox.top || xy[1] > surfaceBox.bottom - ballHeight) {\n    collisionY = true;\n}\n//check collision with paddles\n\n\n//change ball direction, if necessary\nthis.getDirection(collisionX, collisionY);\n\nreturn true;",
+                "designer|userClassName": "checkCollisions"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen6629",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "update",
+                "designer|params": [
+                    "ball"
+                ],
+                "implHandler": "var el  = ball.element,\n    pos = el.getXY(),\n    x, y;\n\nif (!this.direction) {\n    this.direction = [ 1, 1 ];\n}\n\n//calculate new [ x, y ]\nx = pos[0] - 2 * this.direction[0];\ny = pos[1] - 3 * this.direction[1];\n\n//check XY coordinates to see if player has scored\nif (this.checkCollisions(ball, [ x, y ])) {\n    el.setXY([ x, y ]);\n}\nelse {\n    MyApp.app.stopGame();\n}",
+                "designer|userClassName": "update"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen11772",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getDirection",
+                "designer|params": [
+                    "collisionX",
+                    "collisionY"
+                ],
+                "implHandler": "if (collisionX) { this.direction[0] *= -1; }\nif (collisionY) { this.direction[1] *= -1; }",
+                "designer|userClassName": "getDirection"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}

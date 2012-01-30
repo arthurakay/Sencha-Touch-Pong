@@ -1,0 +1,24 @@
+{
+    "id": "ExtBox1-ext-gen2594",
+    "type": "component",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "centered": true,
+        "cls": [
+            "ball"
+        ],
+        "height": 20,
+        "itemId": null,
+        "width": 20,
+        "designer|userClassName": "Ball",
+        "designer|userAlias": "ball"
+    },
+    "customConfigs": [],
+    "designerId": "93018c53-c79a-488b-b1b4-a85dc61506d7",
+    "$viewOrder": 1,
+    "expanded": true
+}
