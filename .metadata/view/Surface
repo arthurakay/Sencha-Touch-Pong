@@ -61,6 +61,7 @@
             "codeClass": null,
             "userConfig": {
                 "draggable": true,
+                "itemId": "player",
                 "right": 100,
                 "designer|userClassName": "Paddle",
                 "designer|userAlias": "paddle"
@@ -79,6 +80,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "itemId": "cpu",
                 "left": 100,
                 "designer|userClassName": "Paddle",
                 "designer|userAlias": "paddle"

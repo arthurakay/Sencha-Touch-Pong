@@ -17,5 +17,10 @@ Ext.define('MyApp.controller.Paddle', {
 
     config: {
 
+    },
+
+    updateCPU: function(xy) {
+        MyApp.app.paddleLeft.element.setXY(xy);
     }
+
 });

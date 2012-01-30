@@ -37,10 +37,12 @@ Ext.define('MyApp.view.ui.Surface', {
             {
                 xtype: 'paddle',
                 draggable: true,
+                itemId: 'player',
                 right: 100
             },
             {
                 xtype: 'paddle',
+                itemId: 'cpu',
                 left: 100
             },
             {

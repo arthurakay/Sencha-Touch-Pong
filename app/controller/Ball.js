@@ -19,11 +19,11 @@ Ext.define('MyApp.controller.Ball', {
 
     },
 
-    checkCollisions: function(ball, xy) {
-        var leftPaddle  = null,
-            rightPaddle = null,
-            ballPos     = ball.element.getXY(),
-            ballHeight  = ball.element.getHeight(),
+    checkCollisions: function(ball) {
+        var leftPaddle  = MyApp.app.paddleLeft.element.getBox(),
+            rightPaddle = MyApp.app.paddleRight.element.getBox(),
+            ballBox     = ball.getBox(),
+            ballHeight  = ball.getHeight(),
             collisionX  = false,
             collisionY  = false,
             surfaceBox;
@@ -34,28 +34,35 @@ Ext.define('MyApp.controller.Ball', {
         surfaceBox = MyApp.app.surface.getBox();
 
         //check collision with borders
-        if (xy[0] < surfaceBox.left) {
+        if (ballBox.left < surfaceBox.left) {
             MyApp.app.dispatch({
-                controller : 'MyApp.controller.Referee',
+                controller : 'Referee',
                 action     : 'incrementScore',
                 args       : []
             });
 
             return false;
         }
-        else if (xy[0] > surfaceBox.right) {
+        else if (ballBox.right > surfaceBox.right) {
             MyApp.app.dispatch({
-                controller : 'MyApp.controller.Referee',
+                controller : 'Referee',
                 action     : 'incrementScore',
                 args       : []
             });
 
             return false;
         }
-        if (xy[1] < surfaceBox.top || xy[1] > surfaceBox.bottom - ballHeight) {
+        if (ballBox.top < surfaceBox.top || ballBox.bottom > surfaceBox.bottom) {
             collisionY = true;
         }
         //check collision with paddles
+        if (ballBox.left < leftPaddle.right && 
+        ballBox.bottom >= leftPaddle.top && 
+        ballBox.top <= leftPaddle.bottom) { collisionX = true; }
+
+        else if (ballBox.right > rightPaddle.left &&
+        ballBox.bottom >= rightPaddle.top && 
+        ballBox.top <= rightPaddle.bottom) { collisionX = true; }
 
 
         //change ball direction, if necessary
@@ -76,10 +83,12 @@ Ext.define('MyApp.controller.Ball', {
         //calculate new [ x, y ]
         x = pos[0] - 2 * this.direction[0];
         y = pos[1] - 3 * this.direction[1];
+        el.setXY([ x, y ]);
 
         //check XY coordinates to see if player has scored
-        if (this.checkCollisions(ball, [ x, y ])) {
-            el.setXY([ x, y ]);
+        if (this.checkCollisions(el)) {
+            //This is FAR more efficient than using dispatch()!
+            MyApp.controller.Paddle.prototype.updateCPU([x,y]);
         }
         else {
             MyApp.app.stopGame();
