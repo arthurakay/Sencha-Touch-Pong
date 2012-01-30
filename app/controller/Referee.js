@@ -17,8 +17,11 @@ Ext.define('MyApp.controller.Referee', {
 
     config: {
         control: {
-            "button": {
+            "button#playpause": {
                 tap: 'playPause'
+            },
+            "sliderfield": {
+                change: 'setDifficulty'
             }
         }
     },
@@ -47,11 +50,25 @@ Ext.define('MyApp.controller.Referee', {
 
             MyApp.app.startGame();
         }
+        else if (this.scoreCPU === 10) {
+            Ext.Msg.alert('Winner', 'The CPU wins!');
+        }
+        else {
+            Ext.Msg.alert('Winner', 'You win!');
+        }
     },
 
     playPause: function(button, e, options) {
         if (MyApp.intervalID) { MyApp.app.stopGame(); }
         else { MyApp.app.startGame(); }
+    },
+
+    setDifficulty: function(slider, value, options) {
+        MyApp.app.difficulty = slider.getValue()[0];
+
+        var paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];
+
+        paddleLeft.setHeight(20 * MyApp.app.difficulty);
     }
 
 });

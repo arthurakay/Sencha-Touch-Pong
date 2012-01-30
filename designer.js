@@ -41,6 +41,13 @@ Ext.application({
         MyApp.app.paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];
         MyApp.app.paddleRight = Ext.ComponentQuery.query('#player')[0];
 
+        MyApp.app.direction = [
+        (Math.floor(Math.random() * 10) % 2) ? 1 : -1,
+        (Math.floor(Math.random() * 10) % 2) ? 1 : -1
+        ];
+
+        if (!MyApp.app.difficulty) { MyApp.app.difficulty = 1; }
+
         MyApp.intervalID = setInterval(MyApp.app.loop, 5);
     },
 

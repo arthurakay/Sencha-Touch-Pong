@@ -27,6 +27,7 @@
             "codeClass": null,
             "userConfig": {
                 "docked": "top",
+                "height": 75,
                 "title": "Pong",
                 "designer|userClassName": "MyToolbar"
             },
@@ -42,10 +43,47 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "mybutton",
+                        "itemId": "playpause",
                         "ui": "confirm",
                         "text": "Play / Pause",
                         "designer|userClassName": "MyButton"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                },
+                {
+                    "id": "ExtBox1-ext-gen55174",
+                    "type": "spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySpacer1"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                },
+                {
+                    "id": "ExtBox1-ext-gen56651",
+                    "type": "sliderfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mysliderfield",
+                        "width": 300,
+                        "label": "Difficulty",
+                        "labelWidth": 100,
+                        "value": [
+                            1
+                        ],
+                        "maxValue": 10,
+                        "minValue": 1,
+                        "designer|userClassName": "MySliderField"
                     },
                     "customConfigs": [],
                     "expanded": true
@@ -99,6 +137,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "height": 20,
                 "itemId": "cpu",
                 "left": 100,
                 "designer|userClassName": "Paddle",

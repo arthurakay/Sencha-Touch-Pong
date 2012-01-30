@@ -60,12 +60,12 @@ Ext.define('MyApp.controller.Ball', {
             collisionY = true;
         }
         //check collision with paddles
-        if (ballBox.left < leftPaddle.right && 
+        if (ballBox.left <= leftPaddle.right && 
         ballBox.left >= leftPaddle.right - 1 &&
         ballBox.bottom >= leftPaddle.top && 
         ballBox.top <= leftPaddle.bottom) { collisionX = true; }
 
-        else if (ballBox.right > rightPaddle.left &&
+        else if (ballBox.right >= rightPaddle.left &&
         ballBox.right <= rightPaddle.left + 1 &&
         ballBox.bottom >= rightPaddle.top && 
         ballBox.top <= rightPaddle.bottom) { collisionX = true; }
@@ -82,26 +82,20 @@ Ext.define('MyApp.controller.Ball', {
             pos = el.getXY(),
             x, y;
 
-        if (!this.direction) {
-            //TODO: Randomize the direction
-            this.direction = [ 1, 1 ];
-        }
-
         //calculate new [ x, y ]
-        x = pos[0] - 2 * this.direction[0];
-        y = pos[1] - 3 * this.direction[1];
+        x = pos[0] - constants.ballX * MyApp.app.direction[0];
+        y = pos[1] - constants.ballY * MyApp.app.direction[1];
+
         el.setXY([ x, y ]);
+        MyApp.controller.Paddle.prototype.updateCPU([x,y]);
 
         //check XY coordinates to see if player has scored
-        if (this.checkCollisions(el)) {
-            //This is FAR more efficient than using dispatch()!
-            MyApp.controller.Paddle.prototype.updateCPU([x,y]);
-        }
+        this.checkCollisions(el);
     },
 
     getDirection: function(collisionX, collisionY) {
-        if (collisionX) { this.direction[0] *= -1; }
-        if (collisionY) { this.direction[1] *= -1; }
+        if (collisionX) { MyApp.app.direction[0] *= -1; }
+        if (collisionY) { MyApp.app.direction[1] *= -1; }
     }
 
 });

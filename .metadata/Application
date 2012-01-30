@@ -30,7 +30,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "startGame",
-                "implHandler": "MyApp.app.ball        = Ext.ComponentQuery.query('ball')[0];\nMyApp.app.paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];\nMyApp.app.paddleRight = Ext.ComponentQuery.query('#player')[0];\n\nMyApp.intervalID = setInterval(MyApp.app.loop, 5);",
+                "implHandler": "MyApp.app.ball        = Ext.ComponentQuery.query('ball')[0];\nMyApp.app.paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];\nMyApp.app.paddleRight = Ext.ComponentQuery.query('#player')[0];\n\nMyApp.app.direction = [\n(Math.floor(Math.random() * 10) % 2) ? 1 : -1,\n(Math.floor(Math.random() * 10) % 2) ? 1 : -1\n];\n\nif (!MyApp.app.difficulty) { MyApp.app.difficulty = 1; }\n\nMyApp.intervalID = setInterval(MyApp.app.loop, 5);",
                 "designer|userClassName": "startGame"
             },
             "customConfigs": [],

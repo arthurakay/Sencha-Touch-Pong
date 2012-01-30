@@ -28,13 +28,29 @@ Ext.define('MyApp.view.ui.Surface', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
+                height: 75,
                 title: 'Pong',
                 items: [
                     {
                         xtype: 'button',
-                        itemId: 'mybutton',
+                        itemId: 'playpause',
                         ui: 'confirm',
                         text: 'Play / Pause'
+                    },
+                    {
+                        xtype: 'spacer'
+                    },
+                    {
+                        xtype: 'sliderfield',
+                        itemId: 'mysliderfield',
+                        width: 300,
+                        label: 'Difficulty',
+                        labelWidth: 100,
+                        value: [
+                            1
+                        ],
+                        maxValue: 10,
+                        minValue: 1
                     }
                 ]
             },
@@ -50,6 +66,7 @@ Ext.define('MyApp.view.ui.Surface', {
             },
             {
                 xtype: 'paddle',
+                height: 20,
                 itemId: 'cpu',
                 left: 100
             },

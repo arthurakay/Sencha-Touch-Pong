@@ -20,8 +20,14 @@ Ext.define('MyApp.controller.Paddle', {
     },
 
     updateCPU: function(xy) {
-        //TODO: Add some AI by randomizing XY position according to difficulty
-        MyApp.app.paddleLeft.element.setXY(xy);
+        var paddleBox = MyApp.app.paddleLeft.element.getBox();
+
+        if (xy[1] < paddleBox.top) {
+            MyApp.app.paddleLeft.element.setY(paddleBox.y - constants.cpuSpeed);
+        }
+        if (xy[1] > paddleBox.bottom) {
+            MyApp.app.paddleLeft.element.setY(paddleBox.y + constants.cpuSpeed);
+        }
     }
 
 });
