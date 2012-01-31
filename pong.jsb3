@@ -1,0 +1,62 @@
+{
+    "projectName": "Pong",
+    "licenseText": "Copyright(c) Arthur Kay (www.akawebdesign.com)",
+    "builds": [
+        {
+            "name": "Application - Production",
+            "target": "app-all.js",
+            "compress": true,
+            "files": [
+                {
+                    "path": "",
+                    "name": "constants.js"
+                },
+                {
+                    "path": "app/view/ui/",
+                    "name": "Ball.js"
+                },
+                {
+                    "path": "app/view/ui/",
+                    "name": "Paddle.js"
+                },
+                {
+                    "path": "app/controller/",
+                    "name": "Ball.js"
+                },
+                {
+                    "path": "app/controller/",
+                    "name": "Referee.js"
+                },
+                {
+                    "path": "app/controller/",
+                    "name": "Paddle.js"
+                },
+                {
+                    "path": "app/view/",
+                    "name": "Paddle.js"
+                },
+                {
+                    "path": "app/view/",
+                    "name": "Ball.js"
+                },
+                {
+                    "path": "app/view/ui/",
+                    "name": "Surface.js"
+                },
+                {
+                    "path": "app/view/",
+                    "name": "Surface.js"
+                },
+                {
+                    "path": "app/view/",
+                    "name": "Viewport.js"
+                },
+                {
+                    "path": "",
+                    "name": "app.js"
+                }
+            ]
+        }
+    ],
+    "resources": []
+}
