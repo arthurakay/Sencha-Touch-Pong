@@ -1,5 +1,5 @@
 constants = {
-    cpuSpeed : 1,
+    cpuSpeed : 2,
     ballX    : 2,
     ballY    : 3
 };

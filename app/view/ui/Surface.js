@@ -66,7 +66,6 @@ Ext.define('MyApp.view.ui.Surface', {
             },
             {
                 xtype: 'paddle',
-                height: 20,
                 itemId: 'cpu',
                 left: 100
             },

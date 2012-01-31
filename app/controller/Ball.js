@@ -41,8 +41,6 @@ Ext.define('MyApp.controller.Ball', {
                 args       : [ true ]
             });
 
-            alert('Player has scored!');
-
             return false;
         }
         else if (ballBox.right > surfaceBox.right) {
@@ -51,8 +49,6 @@ Ext.define('MyApp.controller.Ball', {
                 action     : 'incrementScore',
                 args       : [ false ]
             });
-
-            alert('CPU has scored!');
 
             return false;
         }

@@ -22,11 +22,13 @@ Ext.define('MyApp.controller.Paddle', {
     updateCPU: function(xy) {
         var paddleBox = MyApp.app.paddleLeft.element.getBox();
 
+        var delta = Math.floor(Math.random() * (MyApp.app.difficulty / 2));
+
         if (xy[1] < paddleBox.top) {
-            MyApp.app.paddleLeft.element.setY(paddleBox.y - constants.cpuSpeed);
+            MyApp.app.paddleLeft.element.setY(paddleBox.y - constants.cpuSpeed - delta);
         }
         if (xy[1] > paddleBox.bottom) {
-            MyApp.app.paddleLeft.element.setY(paddleBox.y + constants.cpuSpeed);
+            MyApp.app.paddleLeft.element.setY(paddleBox.y + constants.cpuSpeed + delta);
         }
     }
 

@@ -28,7 +28,7 @@
                 "designer|params": [
                     "isPlayer"
                 ],
-                "implHandler": "MyApp.app.stopGame();\n\nif (!this.scoreCPU) { this.scoreCPU = 0; }\nif (!this.scorePlayer) { this.scorePlayer = 0; }\n\nif (isPlayer) {\n    Ext.ComponentQuery.query('#scorePlayer')[0].setHtml('Player: ' + ++this.scorePlayer);\n}\nelse {\n    Ext.ComponentQuery.query('#scoreCPU')[0].setHtml('CPU: ' + ++this.scoreCPU);\n}\n\n//if score is less than X, restart game\nif (this.scoreCPU < 10 && this.scorePlayer < 10) {\n    var box = MyApp.app.surface.getBox();\n\n    //center the ball\n    MyApp.app.ball.element.setXY(\n    [ Math.floor(box.width / 2), Math.floor( box.height / 2) ]\n    );\n\n    MyApp.app.startGame();\n}\nelse if (this.scoreCPU === 10) {\n    Ext.Msg.alert('Winner', 'The CPU wins!');\n}\nelse {\n    Ext.Msg.alert('Winner', 'You win!');\n}",
+                "implHandler": "        MyApp.app.stopGame();\n\n        if (!this.scoreCPU) { this.scoreCPU = 0; }\n        if (!this.scorePlayer) { this.scorePlayer = 0; }\n\n        if (isPlayer) {\n            Ext.ComponentQuery.query('#scorePlayer')[0].setHtml('Player: ' + ++this.scorePlayer);\n        }\n        else {\n            Ext.ComponentQuery.query('#scoreCPU')[0].setHtml('CPU: ' + ++this.scoreCPU);\n        }\n\n        //if score is less than X, restart game\n        if (this.scoreCPU < 10 && this.scorePlayer < 10) {\n            var box = MyApp.app.surface.getBox();\n\n            //center the ball\n            MyApp.app.ball.element.setXY(\n            [ Math.floor(box.width / 2), Math.floor( box.height / 2) ]\n            );\n\n            MyApp.app.startGame();\n        }\n        else if (this.scoreCPU === 10) {\n            Ext.Msg.alert('Winner', 'The CPU wins!');\n        }\n        else {\n            Ext.Msg.alert('Winner', 'You win!');\n        }",
                 "designer|userClassName": "incrementScore"
             },
             "customConfigs": [],
@@ -44,7 +44,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "playPause",
-                "implHandler": "if (MyApp.intervalID) { MyApp.app.stopGame(); }\nelse { MyApp.app.startGame(); }",
+                "implHandler": "        if (MyApp.intervalID) { MyApp.app.stopGame(); }\n        else { MyApp.app.startGame(); }",
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
                 "designer|controlQuery": "button#playpause",
@@ -63,7 +63,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "setDifficulty",
-                "implHandler": "MyApp.app.difficulty = slider.getValue()[0];\n\nvar paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];\n\npaddleLeft.setHeight(20 * MyApp.app.difficulty);",
+                "implHandler": "MyApp.app.difficulty = slider.getValue()[0];\n\n//var paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];\n//paddleLeft.setHeight(20 * MyApp.app.difficulty);",
                 "name": "change",
                 "designer|targetType": "Ext.field.Slider",
                 "designer|controlQuery": "sliderfield",

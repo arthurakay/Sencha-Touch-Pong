@@ -32,7 +32,7 @@
                 "designer|userClassName": "MyToolbar"
             },
             "customConfigs": [],
-            "expanded": true,
+            "expanded": false,
             "cn": [
                 {
                     "id": "ExtBox1-ext-gen50085",
@@ -137,7 +137,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "height": 20,
+                "height": null,
                 "itemId": "cpu",
                 "left": 100,
                 "designer|userClassName": "Paddle",
