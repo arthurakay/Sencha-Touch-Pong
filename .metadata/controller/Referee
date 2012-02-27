@@ -63,7 +63,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "setDifficulty",
-                "implHandler": "MyApp.app.difficulty = slider.getValue()[0];\n\n//var paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];\n//paddleLeft.setHeight(20 * MyApp.app.difficulty);",
+                "implHandler": "constants.difficulty = slider.getValue()[0];\nBall.speed += constants.difficulty - 1;",
                 "name": "change",
                 "designer|targetType": "Ext.field.Slider",
                 "designer|controlQuery": "sliderfield",

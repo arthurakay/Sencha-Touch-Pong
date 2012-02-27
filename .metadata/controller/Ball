@@ -28,7 +28,7 @@
                 "designer|params": [
                     "ball"
                 ],
-                "implHandler": "        var leftPaddle  = MyApp.app.paddleLeft.element.getBox(),\n            rightPaddle = MyApp.app.paddleRight.element.getBox(),\n            ballBox     = ball.getBox(),\n            ballHeight  = ball.getHeight(),\n            collisionX  = false,\n            collisionY  = false,\n            surfaceBox;\n\n        if (!MyApp.app.surface) { \n            MyApp.app.surface = Ext.ComponentQuery.query('viewport > panel')[0].element.down('.x-panel-inner'); \n        }\n        surfaceBox = MyApp.app.surface.getBox();\n\n        //check collision with borders\n        if (ballBox.left < surfaceBox.left) {\n            MyApp.app.dispatch({\n                controller : 'Referee',\n                action     : 'incrementScore',\n                args       : [ true ]\n            });\n\n            return false;\n        }\n        else if (ballBox.right > surfaceBox.right) {\n            MyApp.app.dispatch({\n                controller : 'Referee',\n                action     : 'incrementScore',\n                args       : [ false ]\n            });\n\n            return false;\n        }\n        if (ballBox.top < surfaceBox.top || ballBox.bottom > surfaceBox.bottom) {\n            collisionY = true;\n        }\n        //check collision with paddles\n        if (ballBox.left <= leftPaddle.right && \n        ballBox.left >= leftPaddle.right - 1 &&\n        ballBox.bottom >= leftPaddle.top && \n        ballBox.top <= leftPaddle.bottom) { collisionX = true; }\n\n        else if (ballBox.right >= rightPaddle.left &&\n        ballBox.right <= rightPaddle.left + 1 &&\n        ballBox.bottom >= rightPaddle.top && \n        ballBox.top <= rightPaddle.bottom) { collisionX = true; }\n\n\n        //change ball direction, if necessary\n        this.getDirection(collisionX, collisionY);\n\n        return true;",
+                "implHandler": "var leftPaddle  = MyApp.app.paddleLeft.element.getBox(),\n    rightPaddle = MyApp.app.paddleRight.element.getBox(),\n    ballBox     = ball.getBox(),\n    ballHeight  = ball.getHeight(),\n    collisionX  = false,\n    collisionY  = false,\n    surfaceBox;\n\nif (!MyApp.app.surface) { \n    MyApp.app.surface = Ext.ComponentQuery.query('viewport > panel')[0].element.down('.x-panel-inner'); \n}\nsurfaceBox = MyApp.app.surface.getBox();\n\n//check collision with borders\nif (ballBox.left < surfaceBox.left) {\n    MyApp.app.dispatch({\n        controller : 'Referee',\n        action     : 'incrementScore',\n        args       : [ true ]\n    });\n\n    return false;\n}\nelse if (ballBox.right > surfaceBox.right) {\n    MyApp.app.dispatch({\n        controller : 'Referee',\n        action     : 'incrementScore',\n        args       : [ false ]\n    });\n\n    return false;\n}\nif (ballBox.top < surfaceBox.top || ballBox.bottom > surfaceBox.bottom) {\n    collisionY = true;\n}\n//check collision with paddles\nif (ballBox.bottom >= leftPaddle.top && ballBox.top <= leftPaddle.bottom) {\n    if (ballBox.left <= leftPaddle.right && ballBox.left >= leftPaddle.right - Ball.speed - Ball.xConstant) { \n        collisionX = true;\n        Ball.checkSpeed();\n    }\n}\n\nif (ballBox.bottom >= rightPaddle.top && ballBox.top <= rightPaddle.bottom) {\n    if (ballBox.right >= rightPaddle.left && ballBox.right <= rightPaddle.left + Ball.speed + Ball.xConstant) { \n        collisionX = true; \n        Ball.checkSpeed();\n    }\n}\n\n\n//change ball direction, if necessary\nthis.getDirection(collisionX, collisionY);\n\nreturn true;",
                 "designer|userClassName": "checkCollisions"
             },
             "customConfigs": [],
@@ -47,7 +47,7 @@
                 "designer|params": [
                     "ball"
                 ],
-                "implHandler": "        var el  = ball.element,\n            pos = el.getXY(),\n            x, y;\n\n        //calculate new [ x, y ]\n        x = pos[0] - constants.ballX * MyApp.app.direction[0];\n        y = pos[1] - constants.ballY * MyApp.app.direction[1];\n\n        el.setXY([ x, y ]);\n        MyApp.controller.Paddle.prototype.updateCPU([x,y]);\n\n        //check XY coordinates to see if player has scored\n        this.checkCollisions(el);",
+                "implHandler": "        var el  = ball.element,\n            pos = el.getXY(),\n            xy = Ball.getXY(pos);\n\n        el.setXY(xy);\n        MyApp.controller.Paddle.prototype.updateCPU(xy);\n\n        //check XY coordinates to see if player has scored\n        this.checkCollisions(el);",
                 "designer|userClassName": "update"
             },
             "customConfigs": [],
@@ -67,7 +67,7 @@
                     "collisionX",
                     "collisionY"
                 ],
-                "implHandler": "        if (collisionX) { MyApp.app.direction[0] *= -1; }\n        if (collisionY) { MyApp.app.direction[1] *= -1; }",
+                "implHandler": "        if (collisionX) { \n            Ball.direction[0] *= -1; \n            Ball.vollies++;\n        }\n        if (collisionY) { Ball.direction[1] *= -1; }",
                 "designer|userClassName": "getDirection"
             },
             "customConfigs": [],

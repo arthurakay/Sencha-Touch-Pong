@@ -64,10 +64,8 @@ Ext.define('MyApp.controller.Referee', {
     },
 
     setDifficulty: function(slider, value, options) {
-        MyApp.app.difficulty = slider.getValue()[0];
-
-        //var paddleLeft  = Ext.ComponentQuery.query('#cpu')[0];
-        //paddleLeft.setHeight(20 * MyApp.app.difficulty);
+        constants.difficulty = slider.getValue()[0];
+        Ball.speed += constants.difficulty - 1;
     }
 
 });

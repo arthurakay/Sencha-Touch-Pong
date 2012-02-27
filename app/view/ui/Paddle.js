@@ -17,7 +17,7 @@ Ext.define('MyApp.view.ui.Paddle', {
     extend: 'Ext.Component',
 
     config: {
-        height: 100,
+        height: 150,
         width: 40,
         cls: [
             'paddle'

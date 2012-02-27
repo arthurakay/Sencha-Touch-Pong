@@ -7,13 +7,15 @@
         "codeGenFormat": "Class",
         "exportPath": "",
         "extPath": "http://extjs.cachefly.net/touch/sencha-touch-designer-edition/",
+        "senchaIoKey": "",
         "senchaIoPath": "http://extjs.cachefly.net/designer/IO/",
         "lineEnding": "LF",
         "instantiateStore": true,
         "genTimestamps": false,
         "saveOnDeploy": false,
         "appName": "MyApp",
-        "mapsAPI": "http://maps.google.com/maps/api/js?sensor=true"
+        "mapsAPI": "http://maps.google.com/maps/api/js?sensor=true",
+        "cssPath": ""
     },
     "xdsVersion": "2.0.0",
     "framework": "touch20",
@@ -21,8 +23,7 @@
         "12451e1e-7c1f-492e-a4c3-d7d72321a69d": {
             "paths": [
                 "app/view/Surface.js",
-                "app/view/ui/Surface.js",
-                "app/view/Viewport.js"
+                "app/view/ui/Surface.js"
             ],
             "className": "Surface"
         },

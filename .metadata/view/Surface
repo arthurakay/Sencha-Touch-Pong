@@ -15,7 +15,7 @@
     "customConfigs": [],
     "designerId": "12451e1e-7c1f-492e-a4c3-d7d72321a69d",
     "$viewOrder": 0,
-    "expanded": true,
+    "expanded": false,
     "cn": [
         {
             "id": "ExtBox1-ext-gen2191",
@@ -99,9 +99,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "ball",
-                "designer|userClassName": "Ball",
-                "designer|userAlias": "ball"
+                "itemId": "ball"
             },
             "customConfigs": [],
             "iconCls": "icon-linkedinstance",
@@ -119,9 +117,7 @@
             "userConfig": {
                 "draggable": true,
                 "itemId": "player",
-                "right": 100,
-                "designer|userClassName": "Paddle",
-                "designer|userAlias": "paddle"
+                "right": 100
             },
             "customConfigs": [],
             "iconCls": "icon-linkedinstance",
@@ -139,9 +135,7 @@
             "userConfig": {
                 "height": null,
                 "itemId": "cpu",
-                "left": 100,
-                "designer|userClassName": "Paddle",
-                "designer|userAlias": "paddle"
+                "left": 100
             },
             "customConfigs": [],
             "iconCls": "icon-linkedinstance",

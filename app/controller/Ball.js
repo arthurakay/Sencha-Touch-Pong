@@ -56,15 +56,19 @@ Ext.define('MyApp.controller.Ball', {
             collisionY = true;
         }
         //check collision with paddles
-        if (ballBox.left <= leftPaddle.right && 
-        ballBox.left >= leftPaddle.right - 1 &&
-        ballBox.bottom >= leftPaddle.top && 
-        ballBox.top <= leftPaddle.bottom) { collisionX = true; }
+        if (ballBox.bottom >= leftPaddle.top && ballBox.top <= leftPaddle.bottom) {
+            if (ballBox.left <= leftPaddle.right && ballBox.left >= leftPaddle.right - Ball.speed - Ball.xConstant) { 
+                collisionX = true;
+                Ball.checkSpeed();
+            }
+        }
 
-        else if (ballBox.right >= rightPaddle.left &&
-        ballBox.right <= rightPaddle.left + 1 &&
-        ballBox.bottom >= rightPaddle.top && 
-        ballBox.top <= rightPaddle.bottom) { collisionX = true; }
+        if (ballBox.bottom >= rightPaddle.top && ballBox.top <= rightPaddle.bottom) {
+            if (ballBox.right >= rightPaddle.left && ballBox.right <= rightPaddle.left + Ball.speed + Ball.xConstant) { 
+                collisionX = true; 
+                Ball.checkSpeed();
+            }
+        }
 
 
         //change ball direction, if necessary
@@ -76,22 +80,21 @@ Ext.define('MyApp.controller.Ball', {
     update: function(ball) {
         var el  = ball.element,
             pos = el.getXY(),
-            x, y;
+            xy = Ball.getXY(pos);
 
-        //calculate new [ x, y ]
-        x = pos[0] - constants.ballX * MyApp.app.direction[0];
-        y = pos[1] - constants.ballY * MyApp.app.direction[1];
-
-        el.setXY([ x, y ]);
-        MyApp.controller.Paddle.prototype.updateCPU([x,y]);
+        el.setXY(xy);
+        MyApp.controller.Paddle.prototype.updateCPU(xy);
 
         //check XY coordinates to see if player has scored
         this.checkCollisions(el);
     },
 
     getDirection: function(collisionX, collisionY) {
-        if (collisionX) { MyApp.app.direction[0] *= -1; }
-        if (collisionY) { MyApp.app.direction[1] *= -1; }
+        if (collisionX) { 
+            Ball.direction[0] *= -1; 
+            Ball.vollies++;
+        }
+        if (collisionY) { Ball.direction[1] *= -1; }
     }
 
 });

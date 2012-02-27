@@ -28,7 +28,7 @@
                 "designer|params": [
                     "xy"
                 ],
-                "implHandler": "var paddleBox = MyApp.app.paddleLeft.element.getBox();\n\nvar delta = Math.floor(Math.random() * (MyApp.app.difficulty / 2));\n\nif (xy[1] < paddleBox.top) {\n    MyApp.app.paddleLeft.element.setY(paddleBox.y - constants.cpuSpeed - delta);\n}\nif (xy[1] > paddleBox.bottom) {\n    MyApp.app.paddleLeft.element.setY(paddleBox.y + constants.cpuSpeed + delta);\n}",
+                "implHandler": "var paddleBox = MyApp.app.paddleLeft.element.getBox();\n\nvar delta = Math.floor(Math.random() * (constants.difficulty / 2));\n\nif (xy[1] < paddleBox.top) {\n    MyApp.app.paddleLeft.element.setY(paddleBox.y - constants.cpuSpeed - delta);\n}\nif (xy[1] > paddleBox.bottom) {\n    MyApp.app.paddleLeft.element.setY(paddleBox.y + constants.cpuSpeed + delta);\n}",
                 "designer|userClassName": "updateCPU"
             },
             "customConfigs": [],
