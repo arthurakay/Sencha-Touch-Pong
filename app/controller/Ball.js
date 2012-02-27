@@ -56,20 +56,24 @@ Ext.define('MyApp.controller.Ball', {
             collisionY = true;
         }
         //check collision with paddles
-        if (ballBox.bottom >= leftPaddle.top && ballBox.top <= leftPaddle.bottom) {
-            if (ballBox.left <= leftPaddle.right && ballBox.left >= leftPaddle.right - Ball.speed - Ball.xConstant) { 
-                collisionX = true;
-                Ball.checkSpeed();
+        if (Ball.direction[0] < 0) {
+            if (ballBox.bottom >= leftPaddle.top && ballBox.top <= leftPaddle.bottom) {
+                if (ballBox.left <= leftPaddle.right && ballBox.left >= leftPaddle.right - Ball.speed - Ball.xConstant) { 
+                    collisionX = true;
+                    Ball.checkSpeed();
+                    this.getDeflection(ballBox, leftPaddle);
+                }
             }
         }
-
-        if (ballBox.bottom >= rightPaddle.top && ballBox.top <= rightPaddle.bottom) {
-            if (ballBox.right >= rightPaddle.left && ballBox.right <= rightPaddle.left + Ball.speed + Ball.xConstant) { 
-                collisionX = true; 
-                Ball.checkSpeed();
+        else {
+            if (ballBox.bottom >= rightPaddle.top && ballBox.top <= rightPaddle.bottom) {
+                if (ballBox.right >= rightPaddle.left && ballBox.right <= rightPaddle.left + Ball.speed + Ball.xConstant) { 
+                    collisionX = true; 
+                    Ball.checkSpeed();
+                    this.getDeflection(ballBox, rightPaddle);
+                }
             }
         }
-
 
         //change ball direction, if necessary
         this.getDirection(collisionX, collisionY);
@@ -95,6 +99,27 @@ Ext.define('MyApp.controller.Ball', {
             Ball.vollies++;
         }
         if (collisionY) { Ball.direction[1] *= -1; }
+    },
+
+    getDeflection: function(ball, paddle) {
+        var ballMiddle = ball.top + (ball.height / 2),
+            paddleSection = paddle.height / 5;
+
+        if (ballMiddle <= paddle.top + paddleSection || ballMiddle >= paddle.bottom - paddleSection) {
+            Ball.angle = Ball.angles.high;
+            return;
+        }
+
+        paddleSection *= 2;
+
+        if (ballMiddle <= paddle.top + paddleSection || ballMiddle >= paddle.bottom - paddleSection) {
+            Ball.angle = Ball.angles.mid;
+            return;
+        }
+
+        Ball.angle = Ball.angles.low;
+        Ball.resetSpeed(); //only an low angle returns
+        return;
     }
 
 });

@@ -63,7 +63,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "setDifficulty",
-                "implHandler": "constants.difficulty = slider.getValue()[0];\nBall.speed += constants.difficulty - 1;",
+                "implHandler": "        constants.difficulty = slider.getValue()[0];\n        Ball.speed += constants.difficulty - 1;",
                 "name": "change",
                 "designer|targetType": "Ext.field.Slider",
                 "designer|controlQuery": "sliderfield",

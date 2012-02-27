@@ -24,21 +24,25 @@ var Ball = {
 
     getXY : function (xyPos) {
         return [
-            xyPos[0] - ((this.angle[0] + this.speed) * this.direction[0]),
-            xyPos[1] - ((this.angle[1] + this.speed) * this.direction[1])
+            xyPos[0] + (this.angle[0] * this.speed * this.direction[0]),
+            xyPos[1] + (this.angle[1] * this.speed * this.direction[1])
         ];
     },
 
     checkSpeed : function () {
-        //increase the game speed every 2 vollies
-        if (this.vollies > 0 && this.vollies % 2 === 0) {
+        //increase the game speed every 3 vollies
+        if (this.vollies > 0 && this.vollies % 3 === 0) {
             this.speed += 1;
         }
     },
 
-    reset : function () {
-        this.speed = 4 + constants.difficulty;
+    resetSpeed : function() {
+        this.speed = 1 + constants.difficulty;
         this.vollies = 0;
+    },
+
+    reset : function () {
+        this.resetSpeed();
 
         //Set a random angle to start the game
         var angles = [ 'low', 'mid', 'high' ];
