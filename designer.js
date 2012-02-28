@@ -29,7 +29,8 @@ Ext.application({
     controllers: [
         'Ball',
         'Paddle',
-        'Referee'
+        'Referee',
+        'Audio'
     ],
 
     launch: function() {

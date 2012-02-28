@@ -34,28 +34,29 @@ Ext.define('MyApp.controller.Referee', {
 
         if (isPlayer) {
             Ext.ComponentQuery.query('#scorePlayer')[0].setHtml('Player: ' + ++this.scorePlayer);
+
+            MyApp.app.dispatch({
+                controller : 'Audio',
+                action     : 'playWin'
+            });
         }
         else {
             Ext.ComponentQuery.query('#scoreCPU')[0].setHtml('CPU: ' + ++this.scoreCPU);
+
+            MyApp.app.dispatch({
+                controller : 'Audio',
+                action     : 'playLose'
+            });
         }
 
-        //if score is less than X, restart game
-        if (this.scoreCPU < 10 && this.scorePlayer < 10) {
-            var box = MyApp.app.surface.getBox();
+        var box = MyApp.app.surface.getBox();
 
-            //center the ball
-            MyApp.app.ball.element.setXY(
-            [ Math.floor(box.width / 2), Math.floor( box.height / 2) ]
-            );
+        //center the ball
+        MyApp.app.ball.element.setXY(
+        [ Math.floor(box.width / 2), Math.floor( box.height / 2) ]
+        );
 
-            MyApp.app.startGame();
-        }
-        else if (this.scoreCPU === 10) {
-            Ext.Msg.alert('Winner', 'The CPU wins!');
-        }
-        else {
-            Ext.Msg.alert('Winner', 'You win!');
-        }
+        MyApp.app.startGame();
     },
 
     playPause: function(button, e, options) {

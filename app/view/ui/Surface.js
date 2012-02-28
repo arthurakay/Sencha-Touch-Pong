@@ -93,6 +93,54 @@ Ext.define('MyApp.view.ui.Surface', {
                         itemId: 'scorePlayer'
                     }
                 ]
+            },
+            {
+                xtype: 'container',
+                hidden: true,
+                itemId: 'Sound',
+                items: [
+                    {
+                        xtype: 'audio',
+                        hidden: true,
+                        itemId: 'collision',
+                        autoPause: false,
+                        autoResume: true,
+                        enableControls: false,
+                        muted: false,
+                        url: 'assets/sounds/border.wav'
+                    },
+                    {
+                        xtype: 'audio',
+                        hidden: true,
+                        itemId: 'win',
+                        autoPause: false,
+                        autoResume: true,
+                        enableControls: false,
+                        muted: false,
+                        url: 'assets/sounds/cheer.wav'
+                    },
+                    {
+                        xtype: 'audio',
+                        hidden: true,
+                        itemId: 'lose',
+                        autoPause: false,
+                        autoResume: true,
+                        enableControls: false,
+                        muted: false,
+                        url: 'assets/sounds/boo.wav'
+                    },
+                    {
+                        xtype: 'audio',
+                        height: 22,
+                        hidden: true,
+                        itemId: 'pong',
+                        width: 22,
+                        autoPause: false,
+                        autoResume: true,
+                        muted: false,
+                        url: 'assets/sounds/pong.wav'
+                    }
+                ]
             }
         ]
     }

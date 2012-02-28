@@ -54,6 +54,11 @@ Ext.define('MyApp.controller.Ball', {
         }
         if (ballBox.top < surfaceBox.top || ballBox.bottom > surfaceBox.bottom) {
             collisionY = true;
+
+            MyApp.app.dispatch({
+                controller : 'Audio',
+                action     : 'playCollision'
+            });
         }
         //check collision with paddles
         if (Ball.direction[0] < 0) {
@@ -62,6 +67,11 @@ Ext.define('MyApp.controller.Ball', {
                     collisionX = true;
                     Ball.checkSpeed();
                     this.getDeflection(ballBox, leftPaddle);
+
+                    MyApp.app.dispatch({
+                        controller : 'Audio',
+                        action     : 'playPong'
+                    });
                 }
             }
         }
@@ -71,6 +81,11 @@ Ext.define('MyApp.controller.Ball', {
                     collisionX = true; 
                     Ball.checkSpeed();
                     this.getDeflection(ballBox, rightPaddle);
+
+                    MyApp.app.dispatch({
+                        controller : 'Audio',
+                        action     : 'playPong'
+                    });
                 }
             }
         }

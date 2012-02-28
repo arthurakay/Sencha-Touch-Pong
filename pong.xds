@@ -58,6 +58,12 @@
                 "app/controller/Referee.js"
             ],
             "className": "Referee"
+        },
+        "93a6f7d6-1d39-4237-afd3-cc1bb5f17057": {
+            "paths": [
+                "app/controller/Audio.js"
+            ],
+            "className": "Audio"
         }
     },
     "expandedState": {

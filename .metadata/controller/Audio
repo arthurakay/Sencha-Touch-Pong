@@ -1,0 +1,84 @@
+{
+    "id": "ExtBox1-ext-gen4479",
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "views": null,
+        "designer|init": "",
+        "designer|userClassName": "Audio"
+    },
+    "customConfigs": [],
+    "designerId": "93a6f7d6-1d39-4237-afd3-cc1bb5f17057",
+    "$viewOrder": 3,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen6720",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "playPong",
+                "implHandler": "var audio = Ext.ComponentQuery.query('#Sound')[0].down('#pong');\n\naudio.play();",
+                "designer|userClassName": "playPong"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen12324",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "playCollision",
+                "implHandler": "var audio = Ext.ComponentQuery.query('#Sound')[0].down('#collision');\n\naudio.play();",
+                "designer|userClassName": "playCollision"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen12432",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "playWin",
+                "implHandler": "var audio = Ext.ComponentQuery.query('#Sound')[0].down('#win');\n\naudio.play();",
+                "designer|userClassName": "playWin"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen12540",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "playLose",
+                "implHandler": "var audio = Ext.ComponentQuery.query('#Sound')[0].down('#lose');\n\naudio.play();",
+                "designer|userClassName": "playLose"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}
