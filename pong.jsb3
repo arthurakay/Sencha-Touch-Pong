@@ -12,12 +12,8 @@
                     "name": "constants.js"
                 },
                 {
-                    "path": "app/view/ui/",
-                    "name": "Ball.js"
-                },
-                {
-                    "path": "app/view/ui/",
-                    "name": "Paddle.js"
+                    "path": "app/controller/",
+                    "name": "Audio.js"
                 },
                 {
                     "path": "app/controller/",
@@ -32,12 +28,20 @@
                     "name": "Paddle.js"
                 },
                 {
-                    "path": "app/view/",
+                    "path": "app/view/ui/",
                     "name": "Paddle.js"
+                },
+                {
+                    "path": "app/view/ui/",
+                    "name": "Ball.js"
                 },
                 {
                     "path": "app/view/",
                     "name": "Ball.js"
+                },
+                {
+                    "path": "app/view/",
+                    "name": "Paddle.js"
                 },
                 {
                     "path": "app/view/ui/",
@@ -48,12 +52,8 @@
                     "name": "Surface.js"
                 },
                 {
-                    "path": "app/view/",
-                    "name": "Viewport.js"
-                },
-                {
                     "path": "",
-                    "name": "app.js"
+                    "name": "designer.js"
                 }
             ]
         }
