@@ -56,7 +56,13 @@ Ext.define('MyApp.controller.Referee', {
         [ Math.floor(box.width / 2), Math.floor( box.height / 2) ]
         );
 
-        MyApp.app.startGame();
+        if (this.scoreCPU >= 10 && this.scoreCPU > this.scorePlayer) {
+            Ext.Msg.alert('Your Lose!', 'You Lose!');
+            Ext.ComponentQuery.query('#playpause')[0].disable();
+        }
+        else {
+            MyApp.app.startGame();
+        }
     },
 
     playPause: function(button, e, options) {

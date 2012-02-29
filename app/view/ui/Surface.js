@@ -49,7 +49,7 @@ Ext.define('MyApp.view.ui.Surface', {
                         value: [
                             1
                         ],
-                        maxValue: 10,
+                        maxValue: 5,
                         minValue: 1
                     }
                 ]

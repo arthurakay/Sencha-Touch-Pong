@@ -26,7 +26,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "playPong",
-                "implHandler": "var audio = Ext.ComponentQuery.query('#Sound')[0].down('#pong');\n\naudio.play();",
+                "implHandler": "        var audio = Ext.ComponentQuery.query('#Sound')[0].down('#pong');\n\n        audio.play();",
                 "designer|userClassName": "playPong"
             },
             "customConfigs": [],
@@ -42,7 +42,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "playCollision",
-                "implHandler": "var audio = Ext.ComponentQuery.query('#Sound')[0].down('#collision');\n\naudio.play();",
+                "implHandler": "        var audio = Ext.ComponentQuery.query('#Sound')[0].down('#collision');\n\n        audio.play();",
                 "designer|userClassName": "playCollision"
             },
             "customConfigs": [],
@@ -58,7 +58,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "playWin",
-                "implHandler": "var audio = Ext.ComponentQuery.query('#Sound')[0].down('#win');\n\naudio.play();",
+                "implHandler": "        var audio = Ext.ComponentQuery.query('#Sound')[0].down('#win');\n\n        audio.play();",
                 "designer|userClassName": "playWin"
             },
             "customConfigs": [],
@@ -74,7 +74,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "playLose",
-                "implHandler": "var audio = Ext.ComponentQuery.query('#Sound')[0].down('#lose');\n\naudio.play();",
+                "implHandler": "        var audio = Ext.ComponentQuery.query('#Sound')[0].down('#lose');\n\n        audio.play();",
                 "designer|userClassName": "playLose"
             },
             "customConfigs": [],

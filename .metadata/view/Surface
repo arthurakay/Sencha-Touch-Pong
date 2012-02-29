@@ -32,7 +32,7 @@
                 "designer|userClassName": "MyToolbar"
             },
             "customConfigs": [],
-            "expanded": false,
+            "expanded": true,
             "cn": [
                 {
                     "id": "ExtBox1-ext-gen50085",
@@ -81,7 +81,7 @@
                         "value": [
                             1
                         ],
-                        "maxValue": 10,
+                        "maxValue": 5,
                         "minValue": 1,
                         "designer|userClassName": "MySliderField"
                     },
