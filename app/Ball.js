@@ -1,4 +1,4 @@
-Ext.define('Ball', {
+Ext.define('Pong.Ball', {
     singleton : true,
 
     speed   : 1,
@@ -13,9 +13,9 @@ Ext.define('Ball', {
     ],
 
     angles : {
-        low  : [ constants.ballX, 0 ],
-        mid  : [ constants.ballX, 1 ],
-        high : [ constants.ballX, 2 ]
+        low  : [ 2, 0 ],
+        mid  : [ 2, 1 ],
+        high : [ 2, 2 ]
     },
 
     getXY : function (xyPos) {
@@ -33,7 +33,7 @@ Ext.define('Ball', {
     },
 
     resetSpeed : function () {
-        this.speed = 1 + constants.difficulty;
+        this.speed = 1 + Pong.Constants.difficulty;
         this.vollies = 0;
     },
 

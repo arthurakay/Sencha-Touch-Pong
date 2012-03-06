@@ -47,11 +47,11 @@ Ext.define('Pong.controller.Ball', {
             });
         }
         //check collision with paddles
-        if (Ball.direction[0] < 0) {
+        if (Pong.Ball.direction[0] < 0) {
             if (ballBox.bottom >= leftPaddle.top && ballBox.top <= leftPaddle.bottom) {
-                if (ballBox.left <= leftPaddle.right && ballBox.left >= leftPaddle.right - Ball.speed - Ball.xConstant) { 
+                if (ballBox.left <= leftPaddle.right && ballBox.left >= leftPaddle.right - Pong.Ball.speed - Pong.Ball.xConstant) {
                     collisionX = true;
-                    Ball.checkSpeed();
+                    Pong.Ball.checkSpeed();
                     this.getDeflection(ballBox, leftPaddle);
 
                     Pong.app.dispatch({
@@ -63,9 +63,9 @@ Ext.define('Pong.controller.Ball', {
         }
         else {
             if (ballBox.bottom >= rightPaddle.top && ballBox.top <= rightPaddle.bottom) {
-                if (ballBox.right >= rightPaddle.left && ballBox.right <= rightPaddle.left + Ball.speed + Ball.xConstant) { 
-                    collisionX = true; 
-                    Ball.checkSpeed();
+                if (ballBox.right >= rightPaddle.left && ballBox.right <= rightPaddle.left + Pong.Ball.speed + Pong.Ball.xConstant) {
+                    collisionX = true;
+                    Pong.Ball.checkSpeed();
                     this.getDeflection(ballBox, rightPaddle);
 
                     Pong.app.dispatch({
@@ -85,7 +85,7 @@ Ext.define('Pong.controller.Ball', {
     update: function(ball) {
         var el  = ball.element,
             pos = el.getXY(),
-            xy = Ball.getXY(pos);
+            xy = Pong.Ball.getXY(pos);
 
         el.setXY(xy);
         Pong.controller.Paddle.prototype.updateCPU(xy);
@@ -95,11 +95,11 @@ Ext.define('Pong.controller.Ball', {
     },
 
     getDirection: function(collisionX, collisionY) {
-        if (collisionX) { 
-            Ball.direction[0] *= -1; 
-            Ball.vollies++;
+        if (collisionX) {
+            Pong.Ball.direction[0] *= -1;
+            Pong.Ball.vollies++;
         }
-        if (collisionY) { Ball.direction[1] *= -1; }
+        if (collisionY) { Pong.Ball.direction[1] *= -1; }
     },
 
     getDeflection: function(ball, paddle) {
@@ -107,19 +107,19 @@ Ext.define('Pong.controller.Ball', {
             paddleSection = paddle.height / 5;
 
         if (ballMiddle <= paddle.top + paddleSection || ballMiddle >= paddle.bottom - paddleSection) {
-            Ball.angle = Ball.angles.high;
+            Pong.Ball.angle = Pong.Ball.angles.high;
             return;
         }
 
         paddleSection *= 2;
 
         if (ballMiddle <= paddle.top + paddleSection || ballMiddle >= paddle.bottom - paddleSection) {
-            Ball.angle = Ball.angles.mid;
+            Pong.Ball.angle = Pong.Ball.angles.mid;
             return;
         }
 
-        Ball.angle = Ball.angles.low;
-        Ball.resetSpeed(); //only an low angle returns
+        Pong.Ball.angle = Pong.Ball.angles.low;
+        Pong.Ball.resetSpeed(); //only an low angle returns
         return;
     }
 

@@ -57,8 +57,8 @@ Ext.define('Pong.controller.Referee', {
     },
 
     setDifficulty: function(slider, value, options) {
-        constants.difficulty = slider.getValue()[0];
-        Ball.speed += constants.difficulty - 1;
+        Pong.Constants.difficulty = slider.getValue()[0];
+        Pong.Ball.speed += Pong.Constants.difficulty - 1;
     }
 
 });

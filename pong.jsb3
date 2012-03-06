@@ -8,52 +8,53 @@
             "compress": true,
             "files": [
                 {
-                    "path": "",
-                    "name": "constants.js"
+                    "path": "/",
+                    "name": "app.js"
                 },
                 {
-                    "path": "app/controller/",
-                    "name": "Audio.js"
+                    "path": "app/",
+                    "name": "Constants.js",
+                    "clsName": "Pong.Constants"
                 },
                 {
-                    "path": "app/controller/",
-                    "name": "Ball.js"
-                },
-                {
-                    "path": "app/controller/",
-                    "name": "Referee.js"
-                },
-                {
-                    "path": "app/controller/",
-                    "name": "Paddle.js"
-                },
-                {
-                    "path": "app/view/ui/",
-                    "name": "Paddle.js"
-                },
-                {
-                    "path": "app/view/ui/",
-                    "name": "Ball.js"
+                    "path": "app/",
+                    "name": "Ball.js",
+                    "clsName": "Pong.Ball"
                 },
                 {
                     "path": "app/view/",
-                    "name": "Ball.js"
+                    "name": "Paddle.js",
+                    "clsName": "Pong.view.Paddle"
+                },
+                {
+                    "path": "app/controller/",
+                    "name": "Ball.js",
+                    "clsName": "Pong.controller.Ball"
+                },
+                {
+                    "path": "app/controller/",
+                    "name": "Paddle.js",
+                    "clsName": "Pong.controller.Paddle"
+                },
+                {
+                    "path": "app/controller/",
+                    "name": "Audio.js",
+                    "clsName": "Pong.controller.Audio"
                 },
                 {
                     "path": "app/view/",
-                    "name": "Paddle.js"
+                    "name": "Ball.js",
+                    "clsName": "Pong.view.Ball"
                 },
                 {
-                    "path": "app/view/ui/",
-                    "name": "Surface.js"
+                    "path": "app/controller/",
+                    "name": "Referee.js",
+                    "clsName": "Pong.controller.Referee"
                 },
                 {
                     "path": "app/view/",
-                    "name": "Surface.js"
-                },
-                {
-                    "path": "",
-                    "name": "designer.js"
+                    "name": "Surface.js",
+                    "clsName": "Pong.view.Surface"
                 }
             ]
         }
