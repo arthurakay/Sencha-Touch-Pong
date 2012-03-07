@@ -13,7 +13,7 @@ Ext.define('Pong.controller.Referee', {
     },
 
     incrementScore: function(isPlayer) {
-        Pong.app.stopGame();
+        Pong.Game.stop();
 
         if (!this.scoreCPU) { this.scoreCPU = 0; }
         if (!this.scorePlayer) { this.scorePlayer = 0; }
@@ -35,10 +35,10 @@ Ext.define('Pong.controller.Referee', {
             });
         }
 
-        var box = Pong.app.surface.getBox();
+        var box = Pong.Game.surface.getBox();
 
         //center the ball
-        Pong.app.ball.element.setXY(
+        Pong.Game.ball.element.setXY(
             [ Math.floor(box.width / 2), Math.floor( box.height / 2) ]
         );
 
@@ -47,18 +47,18 @@ Ext.define('Pong.controller.Referee', {
             Ext.ComponentQuery.query('#playpause')[0].disable();
         }
         else {
-            Pong.app.startGame();
+            Pong.Game.start();
         }
     },
 
     playPause: function(button, e, options) {
-        if (Pong.intervalID) { Pong.app.stopGame(); }
-        else { Pong.app.startGame(); }
+        if (Pong.Game.intervalID) { Pong.Game.stop(); }
+        else { Pong.Game.start(); }
     },
 
     setDifficulty: function(slider, value, options) {
-        Pong.Constants.difficulty = slider.getValue()[0];
-        Pong.Ball.speed += Pong.Constants.difficulty - 1;
+        Pong.Game.difficulty = slider.getValue()[0];
+        Pong.Ball.speed += Pong.Game.difficulty - 1;
     }
 
 });

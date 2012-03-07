@@ -33,7 +33,7 @@ Ext.define('Pong.Ball', {
     },
 
     resetSpeed : function () {
-        this.speed = 1 + Pong.Constants.difficulty;
+        this.speed = 1 + Pong.Game.difficulty;
         this.vollies = 0;
     },
 

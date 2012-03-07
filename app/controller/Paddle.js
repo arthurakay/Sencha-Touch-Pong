@@ -6,15 +6,15 @@ Ext.define('Pong.controller.Paddle', {
     },
 
     updateCPU: function(xy) {
-        var paddleBox = Pong.app.paddleLeft.element.getBox();
+        var paddleBox = Pong.Game.paddleLeft.element.getBox();
 
-        var delta = Math.floor(Math.random() * (Pong.Constants.difficulty / 2));
+        var delta = Math.floor(Math.random() * (Pong.Game.difficulty / 2));
 
         if (xy[1] < paddleBox.top) {
-            Pong.app.paddleLeft.element.setY(paddleBox.y - Pong.Constants.cpuSpeed - delta);
+            Pong.Game.paddleLeft.element.setY(paddleBox.y - Pong.Game.cpuSpeed - delta);
         }
         if (xy[1] > paddleBox.bottom) {
-            Pong.app.paddleLeft.element.setY(paddleBox.y + Pong.Constants.cpuSpeed + delta);
+            Pong.Game.paddleLeft.element.setY(paddleBox.y + Pong.Game.cpuSpeed + delta);
         }
     }
 

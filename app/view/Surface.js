@@ -39,23 +39,7 @@ Ext.define('Pong.view.Surface', {
                     }
                 ]
             },
-            {
-                xtype  : 'ball',
-                itemId : 'ball'
-            },
-            {
-                xtype     : 'paddle',
-                draggable : {
-                    direction : 'vertical'
-                },
-                itemId    : 'player',
-                right     : 100
-            },
-            {
-                xtype  : 'paddle',
-                itemId : 'cpu',
-                left   : 100
-            },
+
             {
                 xtype  : 'toolbar',
                 docked : 'top',
@@ -81,6 +65,25 @@ Ext.define('Pong.view.Surface', {
                     }
                 ]
             },
+
+            {
+                xtype  : 'ball',
+                itemId : 'ball'
+            },
+            {
+                xtype     : 'paddle',
+                draggable : {
+                    direction : 'vertical'
+                },
+                itemId    : 'player',
+                right     : 100
+            },
+            {
+                xtype  : 'paddle',
+                itemId : 'cpu',
+                left   : 100
+            },
+
             {
                 xtype  : 'container',
                 hidden : true,

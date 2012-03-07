@@ -6,18 +6,18 @@ Ext.define('Pong.controller.Ball', {
     },
 
     checkCollisions: function(ball) {
-        var leftPaddle  = Pong.app.paddleLeft.element.getBox(),
-            rightPaddle = Pong.app.paddleRight.element.getBox(),
+        var leftPaddle  = Pong.Game.paddleLeft.element.getBox(),
+            rightPaddle = Pong.Game.paddleRight.element.getBox(),
             ballBox     = ball.getBox(),
             ballHeight  = ball.getHeight(),
             collisionX  = false,
             collisionY  = false,
             surfaceBox;
 
-        if (!Pong.app.surface) {
-            Pong.app.surface = Ext.ComponentQuery.query('viewport > panel')[0].element.down('.x-panel-inner');
+        if (!Pong.Game.surface) {
+            Pong.Game.surface = Ext.ComponentQuery.query('viewport > panel')[0].element.down('.x-panel-inner');
         }
-        surfaceBox = Pong.app.surface.getBox();
+        surfaceBox = Pong.Game.surface.getBox();
 
         //check collision with borders
         if (ballBox.left < surfaceBox.left) {
