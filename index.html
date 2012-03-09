@@ -3,13 +3,25 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pong</title>
+    <title>Pong :: Built with Sencha Touch 2</title>
 
-    <script type="text/javascript" src="constants.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/sencha-touch-2.0.0-gpl/resources/css/sencha-touch.css"/>
+    <script type="text/javascript" src="assets/sencha-touch-2.0.0-gpl/sencha-touch-all-debug.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="http://extjs.cachefly.net/touch/sencha-touch-designer-edition/resources/css/sencha-touch.css"/>
-    <script type="text/javascript" src="http://extjs.cachefly.net/touch/sencha-touch-designer-edition/sencha-touch-all-debug.js"></script>
-    <script type="text/javascript" src="designer.js"></script>
+    <script type="text/javascript">
+        Ext.Loader.setConfig({
+            enabled : true,
+            paths   : {
+                'Pong' : 'app'
+            }
+        });
+
+        Ext.require([
+            'Pong.Game',
+            'Pong.Ball'
+        ]);
+    </script>
+    <script type="text/javascript" src="app.js"></script>
 
     <link rel="stylesheet" type="text/css" href="pong.css"/>
 </head>
