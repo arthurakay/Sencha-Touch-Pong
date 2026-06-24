@@ -2,7 +2,7 @@
   "name": "run-with-friends",
   "version": "1.0.0",
   "dependencies": {
-    "express": "2.5.6",
+    "express": "4.22.0",
     "connect": "1.8.5",
     "connect-mongo": "0.1.7",
     "fbgraph": "git://github.com/criso/fbgraph.git#281a953ff184",
